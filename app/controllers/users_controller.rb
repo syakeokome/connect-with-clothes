@@ -10,10 +10,10 @@ class UsersController < ApplicationController
 
   def unscribe
   end
-  
+
   def update
   end
-  
+
   def withdraw
   end
 
