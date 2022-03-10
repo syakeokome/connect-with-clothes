@@ -1,0 +1,43 @@
+<h2>新規会員登録</h2>
+
+<%= form_with model: User.new, url: user_registration_path, local: true do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <table class="table table-inverse">
+   <tr>
+     <th>名前</th>
+     <td>
+       <%= f.text_field :name, placeholder:"服着 繁子" %>
+     </td>
+    </tr>
+    <tr>
+     <th>郵便番号(ハイフンなし)</th>
+     <td>
+       <%= f.text_field :postal_code, placeholder:"0000000" %>
+     </td>
+    </tr>
+    <tr>
+     <th>住所</th>
+     <td><%= f.text_field :address, placeholder:"東京都渋谷区代々木神園町0-0" %></td>
+    </tr>
+    <tr>
+     <th>メールアドレス</th>
+     <td><%= f.text_field :email, placeholder:"sample@example.com" %></td>
+    </tr>
+    <tr>
+     <th>パスワード(６文字以上)</th>
+     <td><%= f.password_field :password, autocomplete: "new-password" %></td>
+    </tr>
+    <tr>
+      <th>パスワード(確認用)</th>
+      <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+    </tr>
+    <tr>
+      <th></th>
+      <td><%= f.submit '新規登録', class:"btn btn-success" %></td>
+    </tr>
+  </table>
+<% end %>
+
+<h2>既に登録済みの方</h2>
+<%= link_to "こちら", new_user_session_path %>からログインしてください。

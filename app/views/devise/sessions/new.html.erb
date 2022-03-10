@@ -1,0 +1,22 @@
+<h2>ログイン</h2>
+
+<%= form_with model: @user, url: user_session_path, local: true do |f| %>
+
+  <table class="table table-inverse">
+    <tr>
+     <th>メールアドレス</th>
+     <td><%= f.text_field :email %></td>
+    </tr>
+    <tr>
+     <th>パスワード</th>
+     <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+    </tr>
+    <tr>
+      <th></th>
+      <td><%= f.submit 'ログイン', class:"btn btn-primary" %></td>
+    </tr>
+  </table>
+<% end %>
+
+<h2>会員がお済みでない方</h2>
+<%= link_to "こちら", new_user_registration_path %>から新規登録を行なってください。
