@@ -95,15 +95,18 @@ ActiveRecord::Schema.define(version: 2022_03_07_144939) do
   create_table "users", force: :cascade do |t|
     t.string "nickname"
     t.string "user_image"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
     t.string "name"
     t.string "self_introduction"
-    t.string "email"
-    t.string "password"
     t.string "postal_code"
     t.string "address"
     t.integer "age"
     t.integer "height"
     t.boolean "is_deleted"
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
