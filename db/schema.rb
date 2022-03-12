@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_07_144939) do
+ActiveRecord::Schema.define(version: 2022_03_12_065257) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "user_id"
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2022_03_07_144939) do
 
   create_table "users", force: :cascade do |t|
     t.string "nickname"
-    t.string "user_image"
+    t.string "user_image_id"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "name"
@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 2022_03_07_144939) do
     t.string "address"
     t.integer "age"
     t.integer "height"
-    t.boolean "is_deleted"
+    t.boolean "is_deleted", default: true
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

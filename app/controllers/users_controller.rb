@@ -11,18 +11,23 @@ class UsersController < ApplicationController
   end
 
   def unscribe
+    @user = current_user
   end
 
   def update
     @user = current_user
     if @user.update(user_params)
-     redirect_to user_mypage_path
+     redirect_to users_mypage_path
     else
      render :edit
     end
   end
 
   def withdraw
+    @user = current_user
+    @user.update(is_deleted: false)
+    reset_session
+    redirect_to root_path
   end
 
    private
