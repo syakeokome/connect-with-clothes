@@ -7,6 +7,9 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    #@item = current_user.items.new(item_params)
+    #@item.save
+
   end
 
   def edit
@@ -15,31 +18,25 @@ class ItemsController < ApplicationController
   end
 
   def show
+    #@item = Item.new
     @item = Item.find(params[:id])
     #@comment = Comment.new
     # コメント用のコード
-    #@post_comments = @post.comments
+    #@post_comments = @item.comments
 
     # タグ用のコード
     @tags = @item.tags.pluck(:name).join(',')
 
     # 閲覧数表示
-    impressionist(@item, nil, :unique => ["session_hash"])
-  end
-
-  def comfirm
-  end
-
-  def complete
+    #impressionist(@item, nil, :unique => ["session_hash"])
   end
 
   def create
     @item = current_user.items.new(item_params)
-    tags = params[:item][:tag_id].split(',')
+    tags = params[:item][:tag].split(',')
     if @item.save
-      redirect_to items_complete_path
       @item.save_tags(tags)
-      redirect_to root_path, success: t('items.create.create_success')
+      redirect_to items_complete_path
     else
       render :new
     end
@@ -68,9 +65,8 @@ class ItemsController < ApplicationController
   end
 
   private
-
   def item_params
-    params.require(:item).permit(:name, :image_id, :introduction, :price, :is_active)
+    params.require(:item).permit(:name, :image, :introduction, :price, :is_active)
   end
 
 end
