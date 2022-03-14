@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'items#index'
   devise_for :users
   get 'orders/thanks'
-  get 'items/comfirm'
+  post 'items/comfirm'
   get 'items/complete'
   get 'users/mypage'
   get 'users/unscribe'
