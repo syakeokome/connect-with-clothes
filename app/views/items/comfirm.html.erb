@@ -1,7 +1,23 @@
-<h4>金額入力</h4>
-<%= form_with model:@item, url: new_item_path, method: :get, local:true do |f| %>
-  <h4>金額</h4>
-  <%= f.text_field :price %>円
+<div>
+  <h3>投稿内容確認画面</h3>
+</div>
 
-  <%= f.submit '投稿入力画面へ', class:"btn btn-success" %>
+<p>投稿名</p>
+<%= @item.name %>
+<p>投稿画像</p>
+<%= attachment_image_tag @item, :image, :fill, 100, 100 %>
+<p>コメント</p>
+<%= @item.introduction %>
+<p>タグ</p>
+<%= @tags %>
+<p>金額</p>
+<%= @item.price %>円
+<%= form_with model: @item, url: items_path, local: true do |f| %>
+<%= f.hidden_field :name %>
+<%= f.hidden_field :image, value: @item.image %>
+<%= f.hidden_field :introduction %>
+<%= f.hidden_field :tag %>
+<%= f.hidden_field :price %>
+ <%= f.submit '投稿する', class:"btn btn-success" %>
 <% end %>
+
