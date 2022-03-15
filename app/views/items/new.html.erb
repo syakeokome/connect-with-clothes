@@ -8,10 +8,9 @@
   <%= f.text_area :introduction %>
   <h4>タグ付け</h4>
   <%= f.text_area :tag %>
-
   <%= @tags %>
-
-  <%= link_to "金額を入力する", items_comfirm_path, class:"btn btn-success" %><br>
+  <h4>金額を入力する</h4>
+  <%= f.text_field :price %>
 
   <%= f.submit '投稿', class:"btn btn-success" %>
 <% end %>
