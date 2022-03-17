@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   resources :rooms
   resources :addresses
   resources :orders
-  resources :items
+  resources :items do
+   resource :favorites, only: [:create, :destroy]
+   resources :comments, only: [:create, :destroy]
+  end
   resources :users
+
 end

@@ -6,12 +6,44 @@
       <%= @item.user.nickname %>
       <%= attachment_image_tag @item, :image, :fill, 400, 400 %>
       <%= @tags %>
+      <% if @item.favorited_by?(current_user) %>
+       <p>
+         <%= link_to item_favorites_path(@item), method: :delete do %>
+           ♥<%= @item.favorites.count %> いいね
+         <% end %>
+       </p>
+       <% else %>
+       <p>
+         <%= link_to item_favorites_path(@item), method: :post do %>
+           ♡<%= @item.favorites.count %> いいね
+         <% end %>
+        </p>
+      <% end %>
+      <%= link_to "購入する", new_order_path(@order), class:"btn btn-success"  %>
     </div>
     <div class="col-md-7 offset-md-1">
-     
   　　　<p>商品名：<%= @item.name %></p>
   　   <p>商品説明：<%= @item.introduction %></p>
-      <!--<p>税込価格（税抜価格）：<%#= @item.price %></p>-->
+      <p>価格：<%= @item.price %></p>
+      <div>
+        <p>コメント件数：<%= @item.comments.count %></p>
+        <% @item.comments.each do |comment| %>
+         <p><%= attachment_image_tag @item.user, :user_image, :fill, 30, 30 %></p>
+         <%= comment.user.name %>
+         <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+         <% if comment.user == current_user %>
+            <div>
+             <%= link_to "削除", item_comment_path(comment.item, comment), method: :delete %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div>
+        <%= form_with(model:[@item, @comment], local: true) do |f| %>
+         <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+         <%= f.submit "送信する" %>
+        <% end %>
+      </div>
       <%= link_to "編集する", edit_item_path(@item), class:"btn btn-success"  %>
     </div>
   </div>

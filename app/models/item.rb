@@ -5,6 +5,13 @@ class Item < ApplicationRecord
   has_many :item_tags, dependent: :destroy
   has_many :tags, through: :item_tags
   belongs_to :user
+  has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
+
   def save_tags(tags)
     tags.each do |new_tags|
       # selfは明示的に記載していてこの場合だとコントローラーの@postになる
