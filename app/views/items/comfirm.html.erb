@@ -14,9 +14,9 @@
 <%= @item.price %>円
 <%= form_with model: @item, url: items_path, local: true do |f| %>
 <%= f.hidden_field :name %>
-<%= f.hidden_field :image, value: @item.image %>
+<%= f.attachment_field :image, style: "display:none" %>
 <%= f.hidden_field :introduction %>
-<%= f.hidden_field :tag %>
+<%= f.hidden_field :tag, value: @tags %>
 <%= f.hidden_field :price %>
  <%= f.submit '投稿する', class:"btn btn-success" %>
 <% end %>

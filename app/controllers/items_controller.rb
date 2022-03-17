@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    
+
     #@item = current_user.items.new(item_params)
     #@item.save
 
@@ -67,7 +67,7 @@ class ItemsController < ApplicationController
 
   def comfirm
     @item = Item.new(item_params)
-    @tags = @item.tags.pluck(:name).join(',')
+    @tags = params[:item][:tag]
     # if @event.invalid? #入力項目に空のものがあれば入力画面に遷移
     #   render :new:
     # end
