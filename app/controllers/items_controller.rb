@@ -31,6 +31,7 @@ class ItemsController < ApplicationController
     # 閲覧数表示
     #impressionist(@item, nil, :unique => ["session_hash"])
     @comment = Comment.new
+    @user = @item.user
   end
 
   def create

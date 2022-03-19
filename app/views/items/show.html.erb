@@ -3,7 +3,9 @@
   <div class="row">
     <div class="col-md-4">
       <%= attachment_image_tag @item.user, :user_image, :fill, 100, 100 %>
-      <%= @item.user.nickname %>
+      <%= link_to user_path(@user) do %>
+        <%= @item.user.nickname %>
+      <% end %>
       <%= attachment_image_tag @item, :image, :fill, 400, 400 %>
       <%= @tags %>
       <% if @item.favorited_by?(current_user) %>
