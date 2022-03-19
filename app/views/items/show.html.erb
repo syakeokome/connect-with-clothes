@@ -21,16 +21,20 @@
          <% end %>
         </p>
       <% end %>
-      <%= link_to "購入する", new_order_path(@order), class:"btn btn-success"  %>
+      <% if !@item.price.blank? %>
+         <%= link_to "購入する", new_order_path(@order), class:"btn btn-success"  %>
+      <% end %>
     </div>
     <div class="col-md-7 offset-md-1">
   　　　<p>商品名：<%= @item.name %></p>
   　   <p>商品説明：<%= @item.introduction %></p>
-      <p>価格：<%= @item.price %></p>
+  　   <% if !@item.price.blank? %>
+        <p>価格：<%= @item.price %></p>
+      <% end %>
       <div>
         <p>コメント件数：<%= @item.comments.count %></p>
         <% @item.comments.each do |comment| %>
-         <p><%= attachment_image_tag @item.user, :user_image, :fill, 30, 30 %></p>
+         <p><%= attachment_image_tag comment.user, :user_image, :fill, 30, 30 %></p>
          <%= comment.user.name %>
          <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
          <% if comment.user == current_user %>
@@ -46,7 +50,11 @@
          <%= f.submit "送信する" %>
         <% end %>
       </div>
-      <%= link_to "編集する", edit_item_path(@item), class:"btn btn-success"  %>
+      <% if @item.user == current_user %>
+       <div>
+         <%= link_to "編集する", edit_item_path(@item), class:"btn btn-success"  %>
+       </div>
+      <% end %>
     </div>
   </div>
 </div>
