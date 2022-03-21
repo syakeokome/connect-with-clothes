@@ -2,7 +2,7 @@
 
 <%= form_with model: @order, url: orders_comfirm_path, local: true do |f| %>
   <p>支払方法</p>
-  <%= f.collection_radio_buttons :payment_method, Order.payment_methods, :first , :last %>
+  <%= f.collection_radio_buttons :payment_method, Order.payment_methods_i18n, :first , :last %>
   <p>お届け先</p>
   <%= radio_button_tag :order_address, 0 %>
   <%= label_tag :order_address_0, "ご自身の住所" %></br>

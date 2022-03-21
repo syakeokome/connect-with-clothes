@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'homes/about'
   get 'items/individual'
   patch 'users/withdraw'
-  get 'orders/comfirm'
+  post 'orders/comfirm'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :rooms
   resources :addresses

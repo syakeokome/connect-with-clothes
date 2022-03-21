@@ -8,7 +8,7 @@
    </tr>
    <tr>
      <th>アイコン</th>
-     <td><%= @user.user_image %></td>
+     <td><%= attachment_image_tag @user, :user_image, :fill, 100, 100 %></td>
     </tr>
     <tr>
      <th>自己紹介文</th>
@@ -23,5 +23,3 @@
      <td><%= @user.height %></td>
     </tr>
 </table>
-<%= link_to "編集する", edit_admin_customer_path(@customer), class:"btn btn-success"  %>
-<%= link_to "注文履歴一覧を見る", admin_homes_top_path, class:"btn btn-primary"  %>

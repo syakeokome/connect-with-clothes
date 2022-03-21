@@ -20,6 +20,22 @@ class OrdersController < ApplicationController
   end
 
   def comfirm
+    @order = Order.new
+    @order.payment_method = params[:order][:payment_method]
+    if params[:order_address] == "0"
+      @order.postal_code = current_user.postal_code
+      @order.address = current_user.address
+      @order.name = current_user.name
+    elsif params[:order_address] == "1"
+      @address = Address.find(params[:order][:registard_address])
+      @order.postal_code = @address.postal_code
+      @order.address = @address.address
+      @order.name = @address.name
+    else
+      @order.postal_code = params[:order][:postal_code]
+      @order.address = params[:order][:address]
+      @order.name = params[:order][:name]
+    end
   end
 
   private
