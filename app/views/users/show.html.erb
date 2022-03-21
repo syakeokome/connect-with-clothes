@@ -1,2 +1,27 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div>
+  <h3><%= @user.nickname %>さんの会員詳細</h3>
+</div>
+<table>
+   <tr>
+     <th>ニックネーム</th>
+     <td><%= @user.nickname %></td>
+   </tr>
+   <tr>
+     <th>アイコン</th>
+     <td><%= @user.user_image %></td>
+    </tr>
+    <tr>
+     <th>自己紹介文</th>
+     <td><%= @user.self_introduction %></td>
+    </tr>
+    <tr>
+     <th>年齢</th>
+     <td><%= @user.age %></td>
+    </tr>
+    <tr>
+     <th>身長</th>
+     <td><%= @user.height %></td>
+    </tr>
+</table>
+<%= link_to "編集する", edit_admin_customer_path(@customer), class:"btn btn-success"  %>
+<%= link_to "注文履歴一覧を見る", admin_homes_top_path, class:"btn btn-primary"  %>
