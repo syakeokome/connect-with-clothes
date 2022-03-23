@@ -7,6 +7,8 @@ class User < ApplicationRecord
    attachment :user_image
   has_many :items, dependent: :destroy
   has_many :addresses, dependent: :destroy
+  has_many :messages, dependent: :destroy
+  has_many :room_users, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
    has_many :orders, dependent: :destroy

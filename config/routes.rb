@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   patch 'users/withdraw'
   post 'orders/comfirm'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :rooms
+  resources :messages, only: [:create]
+  resources :rooms, only: [:create,:show]
   resources :addresses
   resources :orders
   resources :items do
