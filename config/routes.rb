@@ -10,13 +10,14 @@ Rails.application.routes.draw do
   get 'homes/about'
   get 'items/individual'
   patch 'users/withdraw'
-  post 'orders/comfirm'
+ 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :messages, only: [:create]
   resources :rooms, only: [:create,:show]
   resources :addresses
-  resources :orders
   resources :items do
+ post 'orders/comfirm'
+   resources :orders
    resource :favorites, only: [:create, :destroy]
    resources :comments, only: [:create, :destroy]
   end

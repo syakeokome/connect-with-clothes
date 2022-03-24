@@ -17,7 +17,7 @@
 <%= @order.payment_method_i18n %>
 <p>お届け先</p>
 <%= @order.postal_code %><%= @order.address %><%= @order.name %>
-<%= form_with model: @order, url: orders_path, local: true do |f| %>
+<%= form_with model: @order, url: item_orders_path(@order.item), local: true do |f| %>
 <%= f.hidden_field :postal_code %>
 <%= f.hidden_field :address %>
 <%= f.hidden_field :name %>

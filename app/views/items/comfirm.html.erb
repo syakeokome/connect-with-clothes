@@ -12,7 +12,7 @@
 <%= @tags %>
 <p>金額</p>
 <%= @item.price %>円
-<%= form_with model: @item, url: items_path, local: true do |f| %>
+<%= form_with model: @item, url: order_items_path, local: true do |f| %>
 <%= f.hidden_field :name %>
 <%= f.attachment_field :image, style: "display:none" %>
 <%= f.hidden_field :introduction %>

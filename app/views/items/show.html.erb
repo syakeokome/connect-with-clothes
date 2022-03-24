@@ -22,7 +22,7 @@
         </p>
       <% end %>
       <% if !@item.price.blank? %>
-        <%= link_to "購入する", new_order_path, class:"btn btn-success" %>
+        <%= link_to "購入する",  new_item_order_path(@item), class:"btn btn-success" %>
       <% end %>
     </div>
     <div class="col-md-7 offset-md-1">

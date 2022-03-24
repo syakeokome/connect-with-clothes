@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   def new
     @order = Order.new
+    @item = Item.find(params[:item_id])
   end
 
   def thanks
@@ -15,13 +16,15 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.user_id = current_user.id
+    @order.item_id = params[:item_id]
     @order.save
-    redirect_to orders_comfirm_path
+    redirect_to item_path(@order.item)
   end
 
   def comfirm
     @order = Order.new
     @order.payment_method = params[:order][:payment_method]
+    @order.item_id = params[:item_id]
     if params[:order_address] == "0"
       @order.postal_code = current_user.postal_code
       @order.address = current_user.address

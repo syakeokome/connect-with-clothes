@@ -19,7 +19,8 @@
       <% @messages.each do |m| %>
         <div class="chat-box">
           <div class="chat-face">
-            <%= image_tag m.user.avatar, class:"user-image" %>
+            <
+             <%= attachment_image_tag m.user, :user_image, :fill, 100, 100 %>
           </div>
           <div class="chat-hukidashi"> <strong><%= m.message %></strong> <br>
             <%= m.created_at.strftime("%Y-%m-%d %H:%M")%>
