@@ -1,7 +1,7 @@
 <div class="left-button">
-  <%= link_to "ユーザー一覧に戻る", "/users/index",class:"edit-link" %>
+  <%= link_to "ユーザー詳細に戻る", user_path(@user) %>
 </div>
-<h4 class="rooms-title">気になる同士</h4>
+<h4 class="rooms-title">二人の会話</h4>
 <% @entries.each do |e| %>
   <div class="user-name">
   <strong>

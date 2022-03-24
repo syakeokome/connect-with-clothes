@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
     @order.user_id = current_user.id
     @order.item_id = params[:item_id]
     @order.save
-    redirect_to item_path(@order.item)
+    redirect_to item_orders_thanks_path
   end
 
   def comfirm

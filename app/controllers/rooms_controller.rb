@@ -9,6 +9,7 @@ class RoomsController < ApplicationController
     else
       redirect_back(fallback_location: root_path)
     end
+    @user = @entries.user
   end
 
   def create
