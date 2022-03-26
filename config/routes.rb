@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   post 'items/comfirm'
   get 'items/complete'
+  get 'items/exhibit'
   get 'users/mypage'
   get 'users/unscribe'
   get 'homes/about'

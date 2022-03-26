@@ -65,6 +65,7 @@ class ItemsController < ApplicationController
   end
 
   def individual
+    @items = Item.all.where(user_id: current_user.id)
   end
 
   def comfirm
@@ -73,6 +74,10 @@ class ItemsController < ApplicationController
     # if @event.invalid? #入力項目に空のものがあれば入力画面に遷移
     #   render :new:
     # end
+  end
+
+  def exhibit
+
   end
 
 

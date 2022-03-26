@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 
   def mypage
     @user = current_user
+    #@item = Item.find(params[:id])
   end
 
   def edit
