@@ -1,0 +1,24 @@
+<h2>検索結果</h2>
+
+<table class="table table-hover table-inverse">
+  <!--検索対象モデルがUserの時 -->
+  <% if @range == "User" %>
+    <tbody>
+      <% @users.each do |user| %>
+      　<tr>
+      　  <td>
+        <%= attachment_image_tag user, :user_image, :fill, 100, 100 %>
+        <%= link_to user_path(user) do %>
+          <%= user.nickname %>
+        <% end %>
+         </td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% else %>
+    <!--検索対象モデルがUserではない時(= 検索対象モデルがBookの時) -->
+    <tbody>
+      <%= render 'items/index', items: @items %>
+    </tbody>
+  <% end %>
+</table>
