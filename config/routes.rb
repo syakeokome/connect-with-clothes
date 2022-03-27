@@ -16,8 +16,8 @@ Rails.application.routes.draw do
   resources :rooms, only: [:create,:show]
   resources :addresses
   resources :items do
- post 'orders/comfirm'
- get 'orders/thanks'
+   post 'orders/comfirm'
+   get 'orders/thanks'
    resources :orders
    resource :favorites, only: [:create, :destroy]
    resources :comments, only: [:create, :destroy]

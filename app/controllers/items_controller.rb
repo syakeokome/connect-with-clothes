@@ -77,6 +77,7 @@ class ItemsController < ApplicationController
   end
 
   def exhibit
+     @items = Item.all.where(price: 1..999999, user_id: current_user.id)
 
   end
 

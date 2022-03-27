@@ -9,7 +9,7 @@ class RoomsController < ApplicationController
     else
       redirect_back(fallback_location: root_path)
     end
-    @user = @entries.user
+    @user = User.find(params[:id])
   end
 
   def create
