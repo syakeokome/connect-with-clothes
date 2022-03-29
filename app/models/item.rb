@@ -1,6 +1,9 @@
 class Item < ApplicationRecord
 
   attachment :image
+  enum order_status: {
+     "出品中":0, "購入済み":1
+  }
 
   has_many :item_tags, dependent: :destroy
   has_many :tags, through: :item_tags
@@ -8,7 +11,7 @@ class Item < ApplicationRecord
   has_one :order
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  
+
   def self.looks(search, word)
     if search == "perfect_match"
       @item = Item.where("name LIKE?","#{word}")

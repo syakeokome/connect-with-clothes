@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_21_151801) do
+ActiveRecord::Schema.define(version: 2022_03_29_154917) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "user_id"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2022_03_21_151801) do
     t.boolean "is_active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "order_status", default: 0
   end
 
   create_table "messages", force: :cascade do |t|
