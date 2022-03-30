@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'items/individual'
   patch 'users/withdraw'
   get "search" => "searches#search"
+  get 'user/:user_id/orders', to: 'orders#index', as: 'user_orders'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :messages, only: [:create]
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
   resources :items do
    post 'orders/comfirm'
    get 'orders/thanks'
-   resources :orders
+   resources :orders,  except: [:index]
    resource :favorites, only: [:create, :destroy]
    resources :comments, only: [:create, :destroy]
   end

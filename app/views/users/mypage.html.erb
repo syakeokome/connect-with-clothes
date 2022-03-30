@@ -41,4 +41,7 @@
      <td><%= @user.email %></td>
     </tr>
 </table>
-<%= link_to "配送先一覧", addresses_path, class:"btn btn-primary" %>　<%#= link_to "注文履歴", item_orders_path(@item), class:"btn btn-primary" %>　<%= link_to "自分の投稿一覧", items_individual_path, class:"btn btn-primary" %>  <%= link_to "自分の出品履歴一覧", items_exhibit_path, class:"btn btn-primary" %>
+<%= link_to "配送先一覧", addresses_path, class:"btn btn-primary" %>
+<%= link_to "注文履歴", user_orders_path(user_id:@user.id), class:"btn btn-primary" %>
+<%= link_to "自分の投稿一覧", items_individual_path, class:"btn btn-primary" %>
+<%= link_to "自分の出品履歴一覧", items_exhibit_path, class:"btn btn-primary" %>
