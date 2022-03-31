@@ -21,14 +21,14 @@
          <% end %>
         </p>
       <% end %>
-      <% if !@item.price.blank? %>
+      <% if @item.order_status == "出品中" %>
         <%= link_to "購入する",  new_item_order_path(@item), class:"btn btn-success" %>
       <% end %>
     </div>
     <div class="col-md-7 offset-md-1">
   　　　<p>商品名：<%= @item.name %></p>
   　   <p>商品説明：<%= @item.introduction %></p>
-  　   <% if !@item.price.blank? %>
+  　   <% if @item.order_status == "出品中" %>
         <p>価格：<%= @item.price %></p>
       <% end %>
       <div>

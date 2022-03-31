@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :items do
    post 'orders/comfirm'
    get 'orders/thanks'
-   resources :orders,  except: [:index]
+   resources :orders,  except: [:index, :show]
    resource :favorites, only: [:create, :destroy]
    resources :comments, only: [:create, :destroy]
   end
