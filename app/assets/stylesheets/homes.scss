@@ -1,3 +1,10 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.main-container {
+ background-image: image-url('mediamodifier-7cERndkOyDw-unsplash.jpg');
+  height: 700px;
+  background-size: cover;
+  text-align: center;
+  font-size: 120%
+}
