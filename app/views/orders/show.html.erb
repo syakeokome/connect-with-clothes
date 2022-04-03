@@ -18,10 +18,6 @@
      <th>支払方法</th>
      <td><%= @order.payment_method_i18n %></td>
     </tr>
-    <tr>
-      <th>金額</th>
-      <td><%= @order.price %></td>
-    </tr>
 </table>
 <table>
   <thead>
@@ -33,7 +29,7 @@
   <tbody>
     <tr>
       <td><%= @order.item.name %></td>
-      <td><%= @order.price %></td>
+      <td><%= @order.item.price %></td>
     </tr>
   </tbody>
 </table>

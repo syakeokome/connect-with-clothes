@@ -12,11 +12,12 @@ Rails.application.routes.draw do
   patch 'users/withdraw'
   get "search" => "searches#search"
   #get 'user/:user_id/orders', to: 'orders#index', as: 'user_orders'
-  get "orders/show"
-  get "orders/index"
+ # get "orders/show/:id", to: "orders#show", as: "orders_show"
+ # get "orders/index"
   #get 'user/:user_id/orders', to: 'orders#show', as: 'user_order'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :messages, only: [:create]
+  resources :orders, only: [:index, :show]
   resources :rooms, only: [:create,:show]
   resources :addresses
   resources :items do
