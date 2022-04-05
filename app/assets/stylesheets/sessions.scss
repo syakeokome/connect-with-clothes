@@ -1,3 +1,36 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.title{
+  text-align: center;
+}
+.font{
+  font-family:  fantasy;
+}
+
+table{
+  border-collapse:separate;
+  border-spacing: 5px;
+  width: 100%;
+  text-align: center;
+}
+
+table th,table td{
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px 0;
+}
+
+table th{
+  background-color: #DDDDDD;
+  color: black;
+  border:solid 1px #927141;
+}
+
+table td{
+  background-color: #EEEEEE;
+  border:solid 1px #af9d85;
+}
+.button{
+ text-align: center;
+}

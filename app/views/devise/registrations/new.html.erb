@@ -1,61 +1,75 @@
-<h2>新規会員登録</h2>
+<div class="title">
+  <h1 class="font">Connect With Clothes</h1>
+  <p>〜服で繋がる〜</p>
+  <p>以下の項目にご記入の上、新規登録ボタンを押してください。</p>
+</div>
 
 <%= form_with model: User.new, url: user_registration_path, local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <table class="table table-inverse">
-   <tr>
-     <th>名前</th>
-     <td>
-       <%= f.text_field :name, placeholder:"服着 繁子" %>
-     </td>
-    </tr>
-    <tr>
-     <th>郵便番号(ハイフンなし)</th>
-     <td>
-       <%= f.text_field :postal_code, placeholder:"0000000" %>
-     </td>
-    </tr>
-    <tr>
-     <th>住所</th>
-     <td><%= f.text_field :address, placeholder:"東京都渋谷区代々木神園町0-0" %></td>
-    </tr>
-    <tr>
-     <th>メールアドレス</th>
-     <td><%= f.text_field :email, placeholder:"sample@example.com" %></td>
-    </tr>
-    <tr>
-     <th>ニックネーム</th>
-     <td><%= f.text_field :nickname, placeholder:"シゲ" %></td>
-    </tr>
-    <tr>
-     <th>プロフィール</th>
-     <td><%= f.text_field :self_introduction, placeholder:"あなたのことを教えてね" %></td>
-    </tr>
-    <tr>
-      <th>身長</th>
-      <td><%= f.text_field :height, placeholder:"170"%>cm</td>
-    </tr>
-    <tr>
-      <th>年齢</th>
-      <td><%= f.text_field :age, placeholder:"25"%>歳</td>
-    </tr>
-    <tr>
-     <th>パスワード(６文字以上)</th>
-     <td><%= f.password_field :password, autocomplete: "new-password" %></td>
-    </tr>
-    <tr>
-      <th>パスワード(確認用)</th>
-      <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
-    </tr>
-    <tr>
-      <th></th>
-      <td><%= f.submit '新規登録', class:"btn btn-success" %></td>
-    </tr>
-  </table>
+
+  <div class="container">
+     <div class="row">
+      <table class="table">
+        <div class="col-2">
+        </div>
+        <div class="col-6">
+          <tr>
+           <th>名前</th>
+           <td>
+             <%= f.text_field :name, placeholder:"服着 繁子" %>
+           </td>
+          </tr>
+          <tr>
+           <th>郵便番号(ハイフンなし)</th>
+           <td>
+             <%= f.text_field :postal_code, placeholder:"0000000" %>
+           </td>
+          </tr>
+          <tr>
+           <th>住所</th>
+           <td><%= f.text_field :address, placeholder:"東京都渋谷区代々木神園町0-0" %></td>
+          </tr>
+          <tr>
+           <th>メールアドレス</th>
+           <td><%= f.text_field :email, placeholder:"sample@example.com" %></td>
+          </tr>
+          <tr>
+           <th>ニックネーム</th>
+           <td><%= f.text_field :nickname, placeholder:"シゲ" %></td>
+          </tr>
+          <tr>
+           <th>プロフィール</th>
+           <td><%= f.text_field :self_introduction, placeholder:"あなたのことを教えてね" %></td>
+          </tr>
+          <tr>
+            <th>身長</th>
+            <td><%= f.text_field :height, placeholder:"170"%>cm</td>
+          </tr>
+          <tr>
+            <th>年齢</th>
+            <td><%= f.text_field :age, placeholder:"25"%>歳</td>
+          </tr>
+          <tr>
+           <th>パスワード(６文字以上)</th>
+           <td><%= f.password_field :password, autocomplete: "new-password" %></td>
+          </tr>
+          <tr>
+            <th>パスワード(確認用)</th>
+            <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+          </tr>
+        </div>
+        <div class="col-2">
+        </div>
+      </table>
+    </div>
+  </div>
+  <div class="button">
+    <%= f.submit '新規登録', class:"btn btn-dark" %>
+  </div>
 <% end %>
 
-<h2>既に登録済みの方</h2>
-<%= link_to "こちら", new_user_session_path %>からログインしてください。
-
-<%= render "devise/shared/links" %>
+<div class="button">
+  <h2>既に登録済みの方</h2>
+  <%= link_to "こちら", new_user_session_path %>からログインしてください。
+</div>

@@ -1,22 +1,37 @@
-<h2>ログイン</h2>
+<div class="title">
+  <h1 class="font">Connect With Clothes</h1>
+  <p>〜服で繋がる〜</p>
+  <p>ログイン画面</p>
+</div>
 
 <%= form_with model: @user, url: user_session_path, local: true do |f| %>
 
-  <table class="table table-inverse">
-    <tr>
-     <th>メールアドレス</th>
-     <td><%= f.text_field :email %></td>
-    </tr>
-    <tr>
-     <th>パスワード</th>
-     <td><%= f.password_field :password, autocomplete: "current-password" %></td>
-    </tr>
-    <tr>
-      <th></th>
-      <td><%= f.submit 'ログイン', class:"btn btn-primary" %></td>
-    </tr>
-  </table>
-<% end %>
+  <div class="container">
+    <div class="row">
+      <table class="table">
+        <div class="col-2">
+        </div>
+        <div class="col-6">
+          <tr>
+           <th>メールアドレス</th>
+           <td><%= f.text_field :email %></td>
+          </tr>
+          <tr>
+           <th>パスワード</th>
+           <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+          </tr>
+        </div>
+        <div class="col-2">
+        </div>
+      </table>
+    </div>
+  </div>
+  <div class="button">
+    <%= f.submit 'ログイン', class:"btn btn-dark" %>
+  </div>
+  <% end %>
 
-<h2>会員がお済みでない方</h2>
-<%= link_to "こちら", new_user_registration_path %>から新規登録を行なってください。
+<div class="button">
+  <h2>会員がお済みでない方</h2>
+  <%= link_to "こちら", new_user_registration_path %>から新規登録を行なってください。
+</div>
