@@ -1,6 +1,8 @@
 class AddressesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @addresses = Address.all
+    @addresses = Address.all.where(user_id: current_user.id)
     @address = Address.new
   end
 

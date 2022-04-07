@@ -1,41 +1,47 @@
-<div>
-  <h3>会員情報編集</h3>
+<div class="title">
+    <h3 class="fas fa-crown nav-link ">
+        <span class="font">My Page Edit</span>
+    </h3>
 </div>
-<%= form_with model: @user, url: user_path(@user), local: true do |f| %>
-  <div class=field>
-  <h4 for="inputImage">アイコン</h4>
-  <%=f.attachment_field :user_image %>
-  <div class=field>
-   <h4>プロフィール</h4>
-   <%= f.text_area :self_introduction %>
-  </div>
- <table class="table table-inverse">
-   <tr>
-     <th>ニックネーム</th>
-     <td><%= f.text_field :nickname %></td>
-   </tr>
-   <tr>
-     <th>身長</th>
-     <td><%= f.text_field :height %>cm</td>
-    </tr>
-    <tr>
-      <th>年齢</th>
-      <td><%= f.text_field :age %>歳</td>
-    <tr>
-     <th>郵便番号</th>
-     <td><%= f.text_field :postal_code %></td>
-    </tr>
-    <tr>
-     <th>住所</th>
-     <td><%= f.text_field :address %></td>
-    </tr>
-    <tr>
-     <th>メールアドレス</th>
-     <td><%= f.text_field :email %></td>
-    </tr>
-    <tr>
-     <th></th>
-     <td><%= f.submit '編集内容を保存', class:"btn btn-success" %> <%= link_to "退会する", users_unscribe_path, class:"btn btn-danger" %></td>
-    </tr>
-  </table>
-<% end %>
+
+
+<div class="container" px-5 px-sm-0>
+  <%= form_with model: @user, url: user_path(@user), local: true do |f| %>
+    <div class=field>
+      <h4 for="inputImage">アイコン</h4>
+    </div>
+    <%=f.attachment_field :user_image %>
+    <div class=field>
+      <h4>プロフィール</h4>
+      <%= f.text_area :self_introduction %>
+    </div>
+    <table class="table table-inverse">
+      <tr>
+        <th>ニックネーム</th>
+        <td><%= f.text_field :nickname %></td>
+      </tr>
+      <tr>
+        <th>身長</th>
+        <td><%= f.text_field :height %>cm</td>
+      </tr>
+      <tr>
+         <th>年齢</th>
+         <td><%= f.text_field :age %>歳</td>
+      <tr>
+        <th>郵便番号</th>
+        <td><%= f.text_field :postal_code %></td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td><%= f.text_field :address %></td>
+      </tr>
+      <tr>
+        <th>メールアドレス</th>
+        <td><%= f.text_field :email %></td>
+      </tr>
+    </table>
+    <div class="link">
+     <%= f.submit '編集内容を保存', class:"btn btn-success" %> <%= link_to "退会する", users_unscribe_path, class:"btn btn-danger" %>
+    </div>
+  <% end %>
+ </div>
