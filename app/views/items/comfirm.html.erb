@@ -1,23 +1,35 @@
-<div>
-  <h3>投稿内容確認画面</h3>
+<div class="title">
+    <h3 class="fas fa-crown nav-link ">
+        <span class="font">Your post confirm</span>
+    </h3>
 </div>
+<div class="container">
+  <h4>＊以下の内容で間違いがなければ確定をしてください</h4>
+  <div class="row">
+    <div class="col-md-4">
+      <div><投稿画像></div>
+      <%= attachment_image_tag @item, :image, :fill, 300, 300 %>
+    </div>
+    <div class="col-md-7 offset-md-1">
+      <div><投稿名></div>
+      <%= @item.name %>
+      <div><コメント></div>
+      <%= @item.introduction %>
+      <div><タグ></div>
+      <%= @tags %>
+      <div><金額></div>
+      <%= @item.price %>円
+      <%= form_with model: @item, local: true do |f| %>
+      <%= f.hidden_field :name %>
+      <%= f.attachment_field :image, style: "display:none" %>
+      <%= f.hidden_field :introduction %>
+      <%= f.hidden_field :tag, value: @tags %>
+      <%= f.hidden_field :price %>
+    </div>
+  </div>
+  <div class="link">
+    <%= f.submit '投稿する', class:"btn btn-success" %>
+  </div>
+  <% end %>
 
-<p>投稿名</p>
-<%= @item.name %>
-<p>投稿画像</p>
-<%= attachment_image_tag @item, :image, :fill, 100, 100 %>
-<p>コメント</p>
-<%= @item.introduction %>
-<p>タグ</p>
-<%= @tags %>
-<p>金額</p>
-<%= @item.price %>円
-<%= form_with model: @item, local: true do |f| %>
-<%= f.hidden_field :name %>
-<%= f.attachment_field :image, style: "display:none" %>
-<%= f.hidden_field :introduction %>
-<%= f.hidden_field :tag, value: @tags %>
-<%= f.hidden_field :price %>
- <%= f.submit '投稿する', class:"btn btn-success" %>
-<% end %>
-
+</div>

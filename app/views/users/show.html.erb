@@ -1,37 +1,41 @@
-<div>
-  <h3><%= @user.nickname %>さんの会員詳細</h3>
+<div class="title">
+  <h3 class="fas fa-crown nav-link">
+    <span class="font"><%= @user.nickname %>'s details</span>
+  </h3>
 </div>
-<table>
-  <tr>
-    <th>ニックネーム</th>
-    <td><%= @user.nickname %></td>
-  </tr>
-  <tr>
-    <th>アイコン</th>
-    <td><%= attachment_image_tag @user, :user_image, :fill, 100, 100 %></td>
-  </tr>
-  <tr>
-    <th>自己紹介文</th>
-    <td><%= @user.self_introduction %></td>
-  </tr>
-  <tr>
-    <th>年齢</th>
-    <td><%= @user.age %></td>
-  </tr>
-  <tr>
-    <th>身長</th>
-    <td><%= @user.height %></td>
-  </tr>
-  <% unless @user.id == current_user.id %>
-    <% if @isRoom == true %>
-      <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg">チャットへ</a>
-    <% else %>
-      <%= form_for @room do |f| %>
-         <%= fields_for @entry do |e| %>
-           <%= e.hidden_field :user_id, value: @user.id %>
-         <% end %>
-         <%= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
+<div class="container">
+  <table>
+    <tr>
+      <th>ニックネーム</th>
+      <td><%= @user.nickname %></td>
+    </tr>
+    <tr>
+      <th>アイコン</th>
+      <td><%= attachment_image_tag @user, :user_image, :fill, 100, 100 %></td>
+    </tr>
+    <tr>
+      <th>自己紹介文</th>
+      <td><%= @user.self_introduction %></td>
+    </tr>
+    <tr>
+      <th>年齢</th>
+      <td><%= @user.age %>歳</td>
+    </tr>
+    <tr>
+      <th>身長</th>
+      <td><%= @user.height %>cm</td>
+    </tr>
+    <% unless @user.id == current_user.id %>
+      <% if @isRoom == true %>
+        <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg">チャットへ</a>
+      <% else %>
+        <%= form_for @room do |f| %>
+           <%= fields_for @entry do |e| %>
+             <%= e.hidden_field :user_id, value: @user.id %>
+           <% end %>
+           <%= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
+        <% end %>
       <% end %>
     <% end %>
-  <% end %>
-</table>
+  </table>
+</div>
