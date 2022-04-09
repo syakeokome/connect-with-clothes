@@ -1,27 +1,40 @@
-<div>
-  <h3>注文情報確認</h3>
+<div class="title">
+    <h3 class="fas fa-crown nav-link ">
+        <span class="font">Order Info Confirm</span>
+    </h3>
 </div>
-<%= attachment_image_tag @order.item, :image, :fill, 100, 100 %>
-<table border="1">
-   <tr>
-     <th>商品名</th>
-     <td><%= @order.item.name %></td>
-   </tr>
-
-   <tr>
-     <th>価格</th>
-     <td><%= @order.item.price %></td>
-    </tr>
-</table>
-<p>支払方法</p>
-<%= @order.payment_method_i18n %>
-<p>お届け先</p>
-<%= @order.postal_code %><%= @order.address %><%= @order.name %>
-<%= form_with model: @order, url: item_orders_path, local: true do |f| %>
-<%= f.hidden_field :postal_code %>
-<%= f.hidden_field :address %>
-<%= f.hidden_field :name %>
-<%= f.hidden_field :price %>
-<%= f.hidden_field :payment_method %>
- <%= f.submit '確認画面へ進む', class:"btn btn-success" %>
-<% end %>
+<div class="container">
+  <%= attachment_image_tag @order.item, :image, :fill, 200, 200 %>
+  <pre></pre>
+  <table >
+     <tr>
+       <th>商品名</th>
+       <td><%= @order.item.name %></td>
+     </tr>
+     <tr>
+       <th>価格</th>
+       <td><%= @order.item.price %></td>
+      </tr>
+      <tr>
+        <th>支払方法</th>
+        <td><%= @order.payment_method_i18n %></td>
+      </tr>
+      <tr>
+        <th>お届け先</th>
+        <td>〒<%= @order.postal_code %></br>
+            <%= @order.address %></br>
+            <%= @order.name %>
+      </tr>
+  </table>
+  <%= form_with model: @order, url: item_orders_path, local: true do |f| %>
+  <%= f.hidden_field :postal_code %>
+  <%= f.hidden_field :address %>
+  <%= f.hidden_field :name %>
+  <%= f.hidden_field :price %>
+  <%= f.hidden_field :payment_method %>
+  <pre></pre>
+  <div class="link">
+    <%= f.submit '確認画面へ進む', class:"btn btn-success" %>
+  </div>
+  <% end %>
+</div>

@@ -1,4 +1,8 @@
-<h1>投稿詳細画面</h1>
+<div class="title">
+    <h3 class="fas fa-crown nav-link ">
+        <span class="font">Post Detail</span>
+    </h3>
+</div>
 <div class="container" px-5 px-sm-0>
   <div class="row">
     <div class="col-md-4">
@@ -26,17 +30,20 @@
       <% end %>
     </div>
     <div class="col-md-7 offset-md-1">
-  　　　<p>商品名：<%= @item.name %></p>
-  　   <p>商品説明：<%= @item.introduction %></p>
+      <pre></pre>
+      <pre></pre>
+      <pre></pre>
+      <pre></pre>
+  　　<p><b>商品名</b>：<%= @item.name %></p>
+  　   <p><b>商品説明</b>：<%= @item.introduction %></p>
   　   <% if @item.order_status == "出品中" %>
-        <p>価格：<%= @item.price %></p>
+        <p><b>価格</b>：<%= @item.price %></p>
       <% end %>
       <div>
-        <p>コメント件数：<%= @item.comments.count %></p>
+        <p><b>コメント件数</b>：<%= @item.comments.count %></p>
         <% @item.comments.each do |comment| %>
-         <p><%= attachment_image_tag comment.user, :user_image, :fill, 30, 30 %></p>
-         <%= comment.user.name %>
-         <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+         <p><%= attachment_image_tag comment.user, :user_image, :fill, 30, 30 %><%= comment.user.name %></br></p>
+         <%= comment.created_at.strftime('%Y/%m/%d') %></br><%= comment.comment %>
          <% if comment.user == current_user %>
             <div>
              <%= link_to "削除", item_comment_path(comment.item, comment), method: :delete %>
@@ -47,7 +54,7 @@
       <div>
         <%= form_with(model:[@item, @comment], local: true) do |f| %>
          <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-         <%= f.submit "送信する" %>
+         <%= f.submit "コメントをする" %>
         <% end %>
       </div>
       <% if @item.user == current_user %>
