@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @currentUserEntry=RoomUser.where(user_id: current_user.id)
     @userEntry=RoomUser.where(user_id: @user.id)
+    #binding.irb
     unless @user.id == current_user.id
       @currentUserEntry.each do |cu|
         @userEntry.each do |u|

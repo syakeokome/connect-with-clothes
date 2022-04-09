@@ -29,12 +29,13 @@
       <% if @isRoom == true %>
         <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg">チャットへ</a>
       <% else %>
-        <%= form_for @room do |f| %>
-           <%= fields_for @entry do |e| %>
-             <%= e.hidden_field :user_id, value: @user.id %>
-           <% end %>
-           <%= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
-        <% end %>
+        <%#= form_with model: @room, url: rooms_path, method: :post, local:true do |f| %>
+           <!--<%#= fields_for @entry do |e| %>-->
+           <%#= f.hidden_field :user_id, value: @user.id %>
+           <!--<%# end %>-->
+           <%#= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
+        <%# end %>
+        <%= link_to "チャットを始める", rooms_path(user_id: @user.id), method: :post, class:"btn btn-success" %>
       <% end %>
     <% end %>
   </table>

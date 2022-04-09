@@ -70,10 +70,11 @@ class ItemsController < ApplicationController
 
   def comfirm
     @item = Item.new(item_params)
+    @item.user = current_user
     @tags = params[:item][:tag]
-    # if @event.invalid? #入力項目に空のものがあれば入力画面に遷移
-    #   render :new:
-    # end
+     if @item.invalid? #入力項目に空のものがあれば入力画面に遷移
+       render :new
+     end
   end
 
   def exhibit
