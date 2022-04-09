@@ -11,7 +11,7 @@
     </tr>
     <tr>
       <th>アイコン</th>
-      <td><%= attachment_image_tag @user, :user_image, :fill, 100, 100 %></td>
+      <td><%= attachment_image_tag @user, :user_image,format:'jpeg', fallback:"no_image.jpg",:size=>'200x200' %></td>
     </tr>
     <tr>
       <th>自己紹介文</th>
@@ -35,7 +35,7 @@
            <!--<%# end %>-->
            <%#= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
         <%# end %>
-        <%= link_to "チャットを始める", rooms_path(user_id: @user.id), method: :post, class:"btn btn-success" %>
+        <%= link_to "チャットを始める", rooms_path(user_id: @user.id), method: :post, class:"btn btn-primary" %>
       <% end %>
     <% end %>
   </table>

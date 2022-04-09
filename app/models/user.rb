@@ -5,6 +5,18 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
    attachment :user_image
+
+  validates :nickname, presence: true
+  validates :user_image, presence: true
+  validates :email, presence: true
+  validates :name, presence: true
+  validates :self_introduction, presence: true
+  validates :postal_code, presence: true, length: { is: 7 }
+  validates :address, presence: true
+  validates :age, presence: true
+  validates :height, presence: true
+
+
   has_many :items, dependent: :destroy
   has_many :addresses, dependent: :destroy
   has_many :messages, dependent: :destroy
