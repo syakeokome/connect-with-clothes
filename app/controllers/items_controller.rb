@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
 
 
   def index
-    @items =  Item.all
+    @items =  Item.all.where(is_active: true)
   end
 
   def new
@@ -59,9 +59,9 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    item = Item.find(params[:id])
-    item.destroy
-    redirect_to root_path, success: t('itemss.destroy.destroy_success')
+    @item = Item.find(params[:id])
+    @item.update(is_active: false)
+    redirect_to root_path
   end
 
   def individual

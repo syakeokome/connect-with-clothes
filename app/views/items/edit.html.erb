@@ -22,6 +22,11 @@
         <%= f.submit '変更', class:"btn btn-success" %>
       <% end %>
     </div>
+    <div>
+      <% if @item.user == current_user %>
+       <%= link_to "削除", item_path(@item), method: :delete %>
+      <% end %>
+    </div> 
     <div class="col-2">
     </div>
   </div>

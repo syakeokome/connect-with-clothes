@@ -4,6 +4,10 @@ class Item < ApplicationRecord
   enum order_status: {
      "出品中":0, "購入済み":1
   }
+  
+  validates :name, presence: true
+  validates :image, presence: true
+  validates :introduction, presence: true
 
   has_many :item_tags, dependent: :destroy
   has_many :tags, through: :item_tags

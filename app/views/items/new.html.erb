@@ -4,6 +4,12 @@
     </h3>
 </div>
 <div class="container">
+  <% if @item.errors.any? %>
+    <%= @item.errors.count %>件のエラーが発生しました
+    <% @item.errors.full_messages.each do |message| %>
+      <%= message %>
+    <% end %>
+  <% end %>
   <div class="row">
     <div class="col-4">
     </div>
