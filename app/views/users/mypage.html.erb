@@ -15,6 +15,7 @@
       <p>プロフィール：<%= @user.self_introduction %></p>
     </div>
   </div>
+  <pre></pre>
 <div class="container" px-5 px-sm-0>
   <div class="row">
         <table class="table">
@@ -58,4 +59,5 @@
     <%= link_to "自分の注文履歴を見る", orders_path, class:"btn btn-dark" %>
     <%= link_to "自分の投稿一覧を見る", items_individual_path, class:"btn btn-dark" %>
     <%= link_to "自分の出品履歴一覧を見る", items_exhibit_path, class:"btn btn-dark" %>
+    <%= link_to "DM履歴一覧を見る", rooms_path, class:"btn btn-dark" %>
 </div>

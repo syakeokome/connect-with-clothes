@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :messages, only: [:create]
   resources :orders, only: [:index, :show]
-  resources :rooms, only: [:create,:show]
+  resources :rooms, only: [:create, :show, :index]
   resources :addresses
   resources :items do
    post 'orders/comfirm'
