@@ -7,7 +7,8 @@ class SearchesController < ApplicationController
     elsif @range == "投稿名"
       @items = Item.looks(params[:search], params[:word])
     else
-      @tags = Tag.looks(params[:search], params[:word])
+      @tags = Tag.looks(params[:search], params[:word]).ids
+      @items = Item.where(id: ItemTag.where(tag_id: @tags).pluck('item_id'))
     end
   end
 

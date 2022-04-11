@@ -27,14 +27,7 @@
       </tbody>
     <% else %>
       <tbody>
-        <%#= render 'items/index', items: @items %>
-        <% @tags.each do |tag| %>
-        　<tr>
-        　  <td>
-            <%= tag.name %>
-           </td>
-          </tr>
-        <% end %>
+        <%= render 'items/index', items: @items %>
       </tbody>
     <% end %>
   </table>

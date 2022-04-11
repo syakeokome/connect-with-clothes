@@ -1,7 +1,9 @@
 class RoomsController < ApplicationController
   def index
-    @rooms = Room.all
-    @users = @rooms.users
+    room_ids = current_user.room_users.pluck('room_id')
+    user_ids = RoomUser.where(room_id: room_ids).pluck('user_id')
+    user_ids.delete(current_user.id)
+    @users = User.where(id: user_ids)
   end
   def show
 

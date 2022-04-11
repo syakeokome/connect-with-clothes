@@ -18,9 +18,10 @@ class User < ApplicationRecord
 
 
   has_many :items, dependent: :destroy
+  has_many :room_users, dependent: :destroy
+  has_many :rooms, through: :room_users
   has_many :addresses, dependent: :destroy
   has_many :messages, dependent: :destroy
-  has_many :room_users, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
    has_many :orders, dependent: :destroy
