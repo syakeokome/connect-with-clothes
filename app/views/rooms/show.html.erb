@@ -1,7 +1,11 @@
 <div class="left-button">
   <%= link_to "ユーザー詳細に戻る", user_path(@user) %>
 </div>
-<h4 class="rooms-title">二人の会話</h4>
+<div class="title">
+  <h3 class="fas fa-crown nav-link ">
+    <span class="font">Chat Room</span>
+  </h3>
+</div>
 <% @entries.each do |e| %>
   <div class="user-name">
   <strong>
