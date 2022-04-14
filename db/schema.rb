@@ -37,10 +37,12 @@ ActiveRecord::Schema.define(version: 2022_03_29_154917) do
   end
 
   create_table "item_tags", force: :cascade do |t|
-    t.integer "item_id"
-    t.integer "tag_id"
+    t.integer "item_id", null: false
+    t.integer "tag_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_item_tags_on_item_id"
+    t.index ["tag_id"], name: "index_item_tags_on_tag_id"
   end
 
   create_table "items", force: :cascade do |t|
