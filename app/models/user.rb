@@ -7,7 +7,7 @@ class User < ApplicationRecord
    attachment :user_image
 
   validates :nickname, presence: true
-  validates :user_image, presence: true
+  #validates :user_image, presence: true
   validates :email, presence: true
   validates :name, presence: true
   validates :self_introduction, presence: true
