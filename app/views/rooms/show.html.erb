@@ -27,7 +27,8 @@
              <%= attachment_image_tag m.user, :user_image, :fill, 100, 100 %>
           </div>
           <div class="chat-hukidashi"> <strong><%= m.message %></strong> <br>
-            <%= m.created_at.strftime("%Y-%m-%d %H:%M")%>
+            <%= m.user.nickname %><br>
+            <%= m.created_at.to_s(:datetime_jp)%>
           </div>
         </div>
       <% end %>

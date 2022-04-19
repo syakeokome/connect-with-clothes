@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
 
+before_action :correct_item,   only: [:edit, :update]
 
   def index
     @items =  Item.all.where(is_active: true)
@@ -86,6 +87,13 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:name, :image, :introduction, :price, :is_active)
+  end
+  
+  def correct_item
+      item = Item.find(params[:id])
+      if current_user.id != item.user.id
+        redirect_to item_path(item.id)
+      end
   end
 
 end

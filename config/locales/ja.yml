@@ -14,6 +14,8 @@ ja:
           attributes:
             email:
               blank: 'を入力してください'
+            password:
+              blank: 'を入力してください'
     models:
       user: 'ユーザー'
     attributes:
@@ -27,4 +29,3 @@ ja:
         address: '住所'
         age: '年代'
         height: '身長'
-        　blank: 'を入力してください'
