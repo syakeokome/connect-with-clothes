@@ -16,6 +16,20 @@ ja:
               blank: 'を入力してください'
             password:
               blank: 'を入力してください'
+            nickname:
+              blank: 'を入力してください'
+            name:
+              blank: 'を入力してください'
+            self_introduction:
+              blank: 'を入力してください'
+            postal_code:
+              blank: 'を入力してください'
+            address:
+              blank: 'を入力してください'
+            age:
+              blank: 'を入力してください'
+            height:
+              blank: 'を入力してください'
     models:
       user: 'ユーザー'
     attributes:
