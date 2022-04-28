@@ -21,7 +21,8 @@
         <%= f.attachment_field :image %>
         <h4>コメント</h4>
         <%= f.text_area :introduction %>
-        <h4>タグ付け</h4>
+        <h4>タグ</h4>
+        <h6>（複数ある場合は”,(カンマ)”で区切ってください）</h6>
         <%= f.text_area :tag %>
         <%= @tags %>
         <h4>販売価格（投稿画像を出品する場合のみ）</h4>
