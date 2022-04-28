@@ -37,7 +37,7 @@
   　　<p><b>タイトル</b>：<%= @item.name %></p>
   　   <p><b>説明</b>：<%= @item.introduction %></p>
   　   <% if @item.order_status == "出品中" %>
-        <p><b>価格</b>：<%= @item.price %></p>
+        <p><b>価格</b>：<%= @item.price %>円</p>
       <% end %>
       <div>
         <p><b>コメント件数</b>：<%= @item.comments.count %></p>
