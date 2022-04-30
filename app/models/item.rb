@@ -2,7 +2,7 @@ class Item < ApplicationRecord
 
   attachment :image
   enum order_status: {
-     "出品中":0, "購入済み":1
+    "出品中":0, "購入済み":1
   }
   
   validates :name, presence: true
