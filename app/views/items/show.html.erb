@@ -25,7 +25,7 @@
          <% end %>
         </p>
       <% end %>
-      <% if (@user.id != current_user.id) && (@item.order_status) == "出品中" %>
+      <% if  @item.price.present? && (@user.id != current_user.id) && (@item.order_status) == "出品中" %>
         <%= link_to "購入する",  new_item_order_path(@item), class:"btn btn-success" %>
       <% end %>
     </div>
@@ -36,14 +36,14 @@
       <pre></pre>
   　　<p><b>タイトル</b>：<%= @item.name %></p>
   　   <p><b>説明</b>：<%= @item.introduction %></p>
-  　   <% if @item.order_status == "出品中" %>
+  　   <% if @item.price.present? && @item.order_status == "出品中" %>
         <p><b>価格</b>：<%= @item.price %>円</p>
       <% end %>
       <div>
         <p><b>コメント件数</b>：<%= @item.comments.count %></p>
         <% @item.comments.each do |comment| %>
-         <p><%= attachment_image_tag comment.user, :user_image, :fill, 30, 30 %><%= comment.user.name %></br></p>
-         <%= comment.created_at.strftime('%Y/%m/%d') %></br><%= comment.comment %>
+         <p><%= attachment_image_tag comment.user, :user_image, :fill, 30, 30 %><%= comment.user.name %><br/></p>
+         <%= comment.created_at.strftime('%Y/%m/%d') %><br/><%= comment.comment %>
          <% if comment.user == current_user %>
             <div>
              <%= link_to "削除", item_comment_path(comment.item, comment), method: :delete %>

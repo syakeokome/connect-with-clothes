@@ -9,6 +9,7 @@ class Item < ApplicationRecord
   validates :image, presence: true
   validates :introduction, presence: true
 
+
   has_many :item_tags, dependent: :destroy
   has_many :tags, through: :item_tags
   belongs_to :user
