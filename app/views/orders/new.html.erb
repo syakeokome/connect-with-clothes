@@ -6,7 +6,7 @@
 <div class="container">
   <%= form_with model: @order, url: item_orders_comfirm_path(@item), local: true do |f| %>
     <p><<b>支払方法</b>></p>
-    <%= f.collection_radio_buttons :payment_method, Order.payment_methods_i18n, :first , :last, {}, require %>
+    <%= f.collection_radio_buttons :payment_method, Order.payment_methods_i18n, :first , :last %>
     <pre></pre>
     <p><<b>お届け先</b>></p>
     <%= radio_button_tag :order_address, 0 %>

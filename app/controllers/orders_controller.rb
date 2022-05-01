@@ -21,8 +21,12 @@ class OrdersController < ApplicationController
     @order.user_id = current_user.id
     @order.item_id = params[:item_id]
     @order.save
-    @order.item.update_attribute(:order_status, :"購入済み")
-    redirect_to item_orders_thanks_path
+    if @order.save
+      @order.item.update_attribute(:order_status, :"購入済み")
+      redirect_to item_orders_thanks_path
+    else
+      redirect_to new_item_order_path
+    end
   end
 
   def comfirm
