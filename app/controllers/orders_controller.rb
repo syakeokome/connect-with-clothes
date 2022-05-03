@@ -32,6 +32,11 @@ class OrdersController < ApplicationController
   def comfirm
     @order = Order.new
     @order.payment_method = params[:order][:payment_method]
+    #if params[:payment_method] == "0,1"
+     # @order.save
+    #else
+     # @order.errors.add 
+    #end
     @order.item_id = params[:item_id]
     if params[:order_address] == "0"
       @order.postal_code = current_user.postal_code
