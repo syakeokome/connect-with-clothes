@@ -5,7 +5,7 @@
 </div>
 <div class="container">
   <% if @item.errors.any? %>
-    <%= @item.errors.count %>件のエラーが発生しました
+    <%= @item.errors.count %>件のエラーが発生しました。
     <% @item.errors.full_messages.each do |message| %>
       <%= message %>
     <% end %>
@@ -28,7 +28,7 @@
         <h4>販売価格（投稿画像を出品する場合のみ）</h4>
         <%= f.text_field :price %>円</br>
         <pre></pre>
-        <%= f.submit '投稿', class:"btn btn-success" %>
+        <%= f.submit '投稿', class:"btn btn-dark" %>
       <% end %>
       <div class="col-2">
       </div>
