@@ -1,7 +1,7 @@
 <div class="title">
   <h1 class="font">Connect With Clothes</h1>
   <p>〜服で繋がる〜</p>
-  <p>以下の項目にご記入の上、新規登録ボタンを押してください。</p>
+  <p>以下の項目にご記入の上、SIGN UPボタンを押してください。</p>
 </div>
 
 <%= form_with model: User.new, url: user_registration_path, local: true do |f| %>
@@ -65,7 +65,7 @@
     </div>
   </div>
   <div class="button">
-    <%= f.submit '新規登録', class:"btn btn-dark" %>
+    <%= f.submit 'SIGN UP', class:"btn btn-dark" %>
   </div>
 <% end %>
 
