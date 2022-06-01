@@ -16,7 +16,7 @@
     <%=  current_user.name %><br>
 
     <%= radio_button_tag :order_address, 1 %>
-    <%= label_tag :order_address_1, "登録済み住所から選択" %><br>
+    <%= label_tag :order_address_1, "登録済みの住所から選択" %><br>
     <%= f.collection_select :registard_address, current_user.addresses, :id, :get_full_address %><br>
 
     <%= radio_button_tag :order_address, 2 %>
