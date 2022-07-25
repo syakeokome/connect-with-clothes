@@ -5,7 +5,7 @@
 </div>
 <div class="container">
   <% if @item.errors.any? %>
-    <%= @item.errors.count %>件のエラーが発生しました。
+    <%= @item.errors.count %>件のエラー発生
     <% @item.errors.full_messages.each do |message| %>
       <%= message %>
     <% end %>
