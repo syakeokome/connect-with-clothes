@@ -54,12 +54,12 @@
       <div>
         <%= form_with(model:[@item, @comment], local: true) do |f| %>
          <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-         <%= f.submit "コメントをする" %>
+         <%= f.submit "コメントする" %>
         <% end %>
       </div>
       <% if @item.user == current_user %>
        <div>
-         <%= link_to "編集する", edit_item_path(@item), class:"btn btn-success"  %>
+         <%= link_to "編集", edit_item_path(@item), class:"btn btn-success"  %>
        </div>
       <% end %>
     </div>
