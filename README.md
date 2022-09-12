@@ -1,24 +1,33 @@
-# README
+# connect with clothes
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+　ファッションをメインとしたSNS投稿サイトです。 ユーザーは自分の着ている服等を写真やコメントをつけてサイト上で共有することができます。 それらの投稿を他のユーザーが閲覧でき、年代や身長、投稿のタグづけなどから好みの投稿を見つけることもできます。 また、ユーザーがファッション投稿を行うと、任意でその衣服を売却するか否かを選択することができ、閲覧しているユーザーは購入することができるというフリマ機能もついています。 ユーザー同士が衣服の購入だけではなく、同じ服の趣味を持つもの同士で直接交流できるDM機能もあるので、趣味友を作ることもできます。
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
+### サイトテーマ
+　服で繋がる、服から繋がる
 
-* Configuration
+### テーマを選んだ理由
+　昨今のインターネットの急速な普及により、今やSNSは情報の発信・共有・収集の大きな要となっています。また、オンライン上で人間関係を築くことができる場所でもあります。
+　服にfocusを当てたSNSを作ることで、より趣味や共通の関心を持ったもの同士が集まり、新たな人間関係の構築を図ることができます。
 
-* Database creation
+### ターゲットユーザ
+メインは２０〜４０代の男女
 
-* Database initialization
+### 主な利用シーン
+ユーザーがファッションの投稿をしたいと思った時にSNSの一つとして利用してもらう
 
-* How to run the test suite
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1-cIEvXC7lDnA_9MLsi3raYZ_bzReQdR3Fc3xAxQbKCw/edit#gid=0
 
-* Services (job queues, cache servers, search engines, etc.)
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Deployment instructions
-
-* ...
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
